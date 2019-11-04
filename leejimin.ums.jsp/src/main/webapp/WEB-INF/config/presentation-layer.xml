@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- HandlerMapping 등록 -->
+<beans xmlns="http://www.springframework.org/schema/beans"
+   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xsi:schemaLocation="http://www.springframework.org/schema/beans 
+                  http://www.springframework.org/schema/beans/spring-beans.xsd">
+                  
+   <bean class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
+      <property name="mappings">
+         <props>
+         	<prop key="/memberList.do">memberList</prop>
+            <prop key="/insertMember.do">insertMember</prop>
+         </props>
+      </property>
+   </bean>
+   
+   <!-- Controller 등록 -->
+   <bean id="memberList" class="leejimin.ums.user.controller.MemberListController"></bean>
+   <bean id="insertMember" class="leejimin.ums.user.controller.InsertMemberController"></bean>
+   
+   
+   <!-- ViewResolver 등록 -->
+   <bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+      <property name="prefix" value="/"></property>
+      <property name="suffix" value=".jsp"></property>
+   </bean>
+</beans>
